@@ -11,6 +11,11 @@ class CacheService {
     return Cache.find();
   };
 
+  /**
+   * this methods checks the total documents in the collection.
+   * it will first find the first document to delete and deletes all documents older than that
+   * I wanted to use capped document in mongo but because of deletion and sharding restriction decided to use this way
+   */
   public checkSize = async (): Promise<boolean> => {
     const toRemove = await Cache.find()
       .skip(this.maxSize)
