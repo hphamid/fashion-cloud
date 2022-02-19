@@ -12,14 +12,14 @@ yarn test
 ```
 - You can start the project locally with mongodb installed or use it with docker compose.
 ### Start locally
-- now you can use the command bellow to build and start the project
+- use the command bellow to build and start the project
 ```sh
 yarn start
 ```
 
 ### Docker compose
 You can run the project with docker compose without mongodb installation
-- now you can use the command bellow to build project
+use the command bellow to build project
 ```sh
 yarn build
 ```
