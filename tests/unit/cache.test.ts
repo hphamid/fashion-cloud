@@ -2,6 +2,8 @@ import { expect } from 'chai';
 import CacheService from '../../src/services/cache.service';
 import Cache from '../../src/models/cache.model';
 import dotenv from 'dotenv';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { handleConnection, startDB } from '../test.helper';
 
 dotenv.config();

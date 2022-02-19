@@ -3,6 +3,8 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 
 export const clearCollections = async () => {
   for (const collection in mongoose.connection.collections) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     await mongoose.connection.collections[collection].deleteMany({});
   }
   console.log('remove');
