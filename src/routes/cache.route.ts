@@ -2,7 +2,7 @@ import express, { IRouter } from 'express';
 import CacheController from '../controllers/cache-controller';
 import CacheValidator from '../validators/cacheValidator';
 
-class UserRoutes {
+class CacheRoutes {
   private CacheController = new CacheController();
   private router = express.Router();
   private CacheValidator = new CacheValidator();
@@ -44,4 +44,4 @@ class UserRoutes {
   };
 }
 
-export default UserRoutes;
+export default CacheRoutes;

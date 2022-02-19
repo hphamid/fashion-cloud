@@ -4,8 +4,6 @@ services:
     container_name: mongo
     hostname: mongo
     restart: unless-stopped
-    ports:
-      - 27019:27017
     command: ["--bind_ip", "0.0.0.0"]
 
   app:
@@ -22,5 +20,5 @@ services:
     ports:
       - 3000:3000
     environment:
-      - DATABASE=mongodb://mongo:27019/fashioncloud
+      - DATABASE=mongodb://mongo:27017/fashioncloud
 
