@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import HttpStatus from 'http-status-codes';
-import CacheService from '../services/cache.service';
+import { getCacheInstance } from '../services/cache.service';
 
 import { NextFunction, Request, Response } from 'express';
 
 class CacheController {
-  public CacheService = new CacheService();
+  public CacheService = getCacheInstance();
 
   /**
-   * Controller to get all users available
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
+   * Controller to get all keys available
+   * @param req
+   * @param res
+   * @param next
    */
   public getAll = async (
     req: Request,
@@ -31,9 +31,9 @@ class CacheController {
 
   /**
    * Controller to create/get a cache
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
+   * @param req
+   * @param res
+   * @param next
    */
   public getCache = async (
     req: Request,
@@ -54,10 +54,10 @@ class CacheController {
   };
 
   /**
-   * Controller to create new user
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
+   * Controller to delete all items
+   * @param req
+   * @param res
+   * @param next
    */
   public deleteAll = async (
     req: Request,
@@ -73,10 +73,10 @@ class CacheController {
   };
 
   /**
-   * Controller to update a user
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
+   * Controller to update a cache
+   * @param req
+   * @param res
+   * @param next
    */
   public updateCache = async (
     req: Request,
@@ -108,10 +108,10 @@ class CacheController {
   };
 
   /**
-   * Controller to delete a single user
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
+   * Controller to delete a single cache
+   * @param req
+   * @param res
+   * @param next
    */
   public deleteCache = async (
     req: Request,

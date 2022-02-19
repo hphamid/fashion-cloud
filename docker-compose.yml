@@ -1,0 +1,26 @@
+services:
+  mongo:
+    image: mongo:4.2
+    container_name: mongo
+    hostname: mongo
+    restart: unless-stopped
+    ports:
+      - 27019:27017
+    command: ["--bind_ip", "0.0.0.0"]
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: app
+    container_name: app
+    restart: on-failure
+    depends_on:
+      - mongo
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+    environment:
+      - DATABASE=mongodb://mongo:27019/fashioncloud
+

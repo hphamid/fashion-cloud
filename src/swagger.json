@@ -1,0 +1,170 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "sample swagger for fashion cloud",
+    "version": "1.0.0",
+    "title": "FashionCloud",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "hp.hamid71@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "127.0.0.1:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "cache",
+      "description": "cache Services",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/cache": {
+      "get": {
+        "tags": [
+          "cache"
+        ],
+        "summary": "get all caches",
+        "description": "",
+        "operationId": "get all caches",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "cache"
+        ],
+        "summary": "delete all caches",
+        "description": "",
+        "operationId": "delete all caches",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/cache/{key}": {
+      "get": {
+        "tags": [
+          "cache"
+        ],
+        "summary": "get cache",
+        "description": "Returns a single cache",
+        "operationId": "get cache by key",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key of cache to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "value"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "cache"
+        ],
+        "summary": "delete cache",
+        "description": "deletes a single cache",
+        "operationId": "delete cache by key",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key of cache to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "value"
+          },
+          "404": {
+            "description": "not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "cache"
+        ],
+        "summary": "update cache by key",
+        "description": "updates a single cache",
+        "operationId": "update cache by key",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key of cache to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "value",
+            "description": "value",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CacheRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "created"
+          },
+          "202": {
+            "description": "accepted"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CacheRequest": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    }
+  }
+}

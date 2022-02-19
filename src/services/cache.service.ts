@@ -59,4 +59,12 @@ class CacheService {
   };
 }
 
+let current: CacheService = undefined;
+export function getCacheInstance(): CacheService {
+  if (!current) {
+    current = new CacheService();
+  }
+  return current;
+}
+
 export default CacheService;

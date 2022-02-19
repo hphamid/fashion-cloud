@@ -12,6 +12,10 @@ import Logger from './config/logger';
 
 import morgan from 'morgan';
 
+import swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger.json';
+import promMid from 'express-prometheus-middleware';
+
 class App {
   public app: Application;
   public host: string | number;
@@ -31,6 +35,8 @@ class App {
 
     this.initializeMiddleWares();
     this.initializeRoutes();
+    this.initilizeSwagger();
+    this.initializePrometheus();
     this.initializeDatabase();
     this.initializeErrorHandlers();
     this.startApp();
@@ -46,6 +52,28 @@ class App {
 
   public initializeDatabase(): void {
     this.db.initializeDatabase();
+  }
+
+  public initilizeSwagger(): void {
+    this.app.use(
+      '/api-docs',
+      swaggerUi.serve,
+      swaggerUi.setup(swaggerDocument)
+    );
+  }
+
+  public initializePrometheus(): void {
+    this.app.use(
+      '',
+      promMid({
+        metricsPath: '/metrics',
+        metricsApp: this.app,
+        collectDefaultMetrics: true,
+        requestDurationBuckets: [0.1, 0.5, 1, 1.5],
+        requestLengthBuckets: [512, 1024, 5120, 10240, 51200, 102400],
+        responseLengthBuckets: [512, 1024, 5120, 10240, 51200, 102400]
+      })
+    );
   }
 
   public initializeRoutes(): void {

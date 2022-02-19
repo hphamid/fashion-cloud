@@ -1,5 +1,5 @@
 import express, { IRouter } from 'express';
-import CacheController from '../controllers/cacheController';
+import CacheController from '../controllers/cache-controller';
 import CacheValidator from '../validators/cacheValidator';
 
 class UserRoutes {
@@ -13,6 +13,15 @@ class UserRoutes {
 
   private routes = () => {
     //route to get all cache
+    /**
+     * @openapi
+     * /:
+     *   get:
+     *     description: Welcome to swagger-jsdoc!
+     *     responses:
+     *       200:
+     *         description: Returns a mysterious string.
+     */
     this.router.get('', this.CacheController.getAll);
     //route to delete all cache
     this.router.delete('', this.CacheController.deleteAll);
