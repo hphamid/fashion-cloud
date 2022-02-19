@@ -6,6 +6,10 @@
 ```sh
 yarn install
 ```
+- you can use the command bellow to run tests
+```sh
+yarn test
+```
 - You can start the project locally with mongodb installed or use it with docker compose.
 ### Start locally
 - now you can use the command bellow to build and start the project
