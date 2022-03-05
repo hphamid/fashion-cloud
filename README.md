@@ -4,24 +4,24 @@
 - First you should install node_modules
 - you can use the command bellow to install dependencies
 ```sh
-yarn install
+npm install
 ```
 - you can use the command bellow to run tests
 ```sh
-yarn test
+npm test
 ```
 - You can start the project locally with mongodb installed or use it with docker compose.
 ### Start locally
 - use the command bellow to build and start the project
 ```sh
-yarn start
+npm start
 ```
 
 ### Docker compose
 You can run the project with docker compose without mongodb installation
 use the command bellow to build project
 ```sh
-yarn build
+npm run build
 ```
 after that there should be a 'build' folder in the project root.
 
@@ -36,7 +36,7 @@ if you changed anything and you wanted the docker-compose to build the app again
 
 ```sh
 docker-compose up -d --force-recreate 
-``` 
+```
 
 ## How To Test
 
@@ -47,6 +47,7 @@ you can use http://localhost:3000/api-docs to check the apis and test them.
 ## Features
 
 - node.js 16 and express.js
+- you can find the env files in the .env file.
 - swagger to serve api docs
 - embedded mongo to running tests
 - prometheus to export metrics

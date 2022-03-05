@@ -28,7 +28,6 @@
     "mailgun-js": "^0.22.0",
     "mongoose": "^5.10.2",
     "morgan": "^1.10.0",
-    "prom-client": "^14.0.1",
     "response-time": "^2.3.2",
     "swagger-ui-express": "^4.3.0",
     "ts-node-dev": "^1.0.0-pre.62",
